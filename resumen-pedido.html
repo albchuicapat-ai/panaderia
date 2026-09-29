@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panadería Trigal - Resumen del Pedido</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+
+  <div class="container my-5">
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-10 col-lg-8">
+
+        <!-- Mensaje de error para acceso directo sin datos -->
+        <div id="mensajeSinDatos" class="alert alert-danger shadow-sm d-none" role="alert">
+          <h4 class="alert-heading">Acceso restringido</h4>
+          <p>No se ha encontrado ninguna información sobre un pedido actual.</p>
+          <hr>
+          <a href="index.html" class="btn btn-outline-danger">Ir al cotizador de pedidos</a>
+        </div>
+
+        <!-- Tarjeta de resumen de pedido -->
+        <div id="cardResumen" class="card shadow-sm d-none">
+          <div class="card-header bg-success text-white text-center py-3">
+            <h1 class="h4 mb-0">Resumen del Presupuesto</h1>
+            <small>Panadería Artesanal Trigal de Lima</small>
+          </div>
+          <div class="card-body p-4">
+
+            <!-- Datos del cliente -->
+            <div class="row mb-4">
+              <div class="col-12 col-md-6">
+                <strong>Cliente:</strong> <span id="resCliente"></span>
+              </div>
+              <div class="col-12 col-md-6">
+                <strong>Correo:</strong> <span id="resEmail"></span>
+              </div>
+              <div class="col-12 col-md-6 mt-2">
+                <strong>Fecha de entrega:</strong> <span id="resFecha"></span>
+              </div>
+              <div class="col-12 col-md-6 mt-2">
+                <strong>Modalidad:</strong> <span id="resModalidad"></span>
+              </div>
+            </div>
+
+            <!-- Tabla de detalle de productos -->
+            <h5 class="border-bottom pb-2 text-primary">Detalle de Productos</h5>
+            <div class="table-responsive">
+              <table class="table table-bordered table-striped align-middle">
+                <thead class="table-light">
+                  <tr>
+                    <th>Producto</th>
+                    <th class="text-center">Precio Unit.</th>
+                    <th class="text-center">Cantidad</th>
+                    <th class="text-end">Subtotal Item</th>
+                  </tr>
+                </thead>
+                <tbody id="tablaProductos"></tbody>
+              </table>
+            </div>
+
+            <!-- Totales calculados -->
+            <div class="row justify-content-end mt-3">
+              <div class="col-12 col-md-6">
+                <ul class="list-group">
+                  <li class="list-group-item d-flex justify-content-between">
+                    <span>Subtotal:</span>
+                    <strong id="resSubtotal"></strong>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between text-success">
+                    <span>Descuento (10%):</span>
+                    <strong id="resDescuento"></strong>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between">
+                    <span>Reparto:</span>
+                    <strong id="resReparto"></strong>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between bg-light h5 mb-0">
+                    <span>Total Final:</span>
+                    <strong id="resTotal" class="text-success"></strong>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Botones de navegación -->
+            <div class="d-grid gap-2 mt-4">
+              <button id="btnCorregir" class="btn btn-warning fw-bold">Corregir / Modificar Pedido</button>
+              <a href="index.html" class="btn btn-outline-secondary">Realizar una nueva cotización</a>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script src="resumen.js"></script>
+</body>
+</html>
